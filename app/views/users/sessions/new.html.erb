@@ -1,0 +1,30 @@
+<article  id="main" class="">
+  <div class="wrapper">
+    <div class="inner medium-box">
+      <h2 class="center">Inicio de sesion</h2>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label 'Correo' %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="field">
+          <%= f.label "Contraseña" %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <br>
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label "Recuerdame" %>
+          </div>
+        <% end -%>
+        <div class="actions">
+          <%= f.submit "Entra" %>
+        </div>
+      <% end %>
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+
+</article>
